@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>ch03_01</title>
+  <script type="text/javascript" src="../angular-1.5.5/angular.js" ></script>
+</head>
+<body ng-controller="CalcController">
+  <div>PRICE: <input type="number" ng-model="price" /></div><br />
+  <div>NUM: <input type="number" ng-model="num" /></div><br />
+  <div>TOTAL: {{ totalPrice() }}</div>
+
+  <script type="text/javascript">
+    function CalcController($scope)
+    {
+      $scope.price = 10;
+      $scope.num = 1;
+      $scope.totalPrice = function()
+      {
+        return $scope.price * $scope.num
+      }
+    }
+
+    var app = angular.module("app", []);
+    app.controller("CalcController", CalcController)
+  </script>
+</body>
+</html>

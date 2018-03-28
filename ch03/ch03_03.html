@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>ch03_03</title>
+	<link rel="stylesheet" type="text/css" href="../bootstrap-3.3.7/dist/css/bootstrap.css" />
+	<script type="text/javascript" src="../angular-1.5.5/angular.js"></script>
+</head>
+<body>
+	<div class="container" ng-controller="LoginController">
+		<div class="login-title text-center">
+			<h1><small>LOGIN</small></h1>
+		</div>
+		<div class="form">
+			<div class="form-group">
+				<div class="col-xs-12">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-user"></span>
+						</span>
+						<input type="text" ng-model="uname" class="form-control" placeholder="UserName">
+					</div>
+				</div>
+			</div>
+		</div><br /><br />
+		<div class="form-group">
+				<div class="col-xs-12">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<span class="glyphicon glyphicon-lock"></span>
+						</span>
+						<input type="text" ng-model="passwd" class="form-control" placeholder="Passwd">
+					</div>
+				</div>
+		</div><br /><br />
+		<div class="form-group form-actions">
+				<div class="col-xs-4 col-xs-offset-4">
+					<button type="submit" ng-click="login()" class="btn btn-sm btn-info">
+						<span class="glyphicon glyphicon-log-in"></span>
+						Login
+					</button>
+					<button type="reset" ng-click="login()" class="btn btn-sm btn-info">
+							<span class="glyphicon glyphicon-off"></span>
+							Reset
+						</button>
+				</div>
+		</div>
+	</div>
+
+	<script>
+		function LoginController($scope)
+		{
+			$scope.login = function()
+			{
+				if ($scope.uname == "admin" && $scope.passwd == "admin") {
+					alert("Login Succ!");
+				} else {
+					alert("Login failed!");
+				}
+			}
+		}
+
+		var app = angular.module("app", []);
+		app.controller("LoginController", LoginController)
+	</script>
+
+</body>
+</html>

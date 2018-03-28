@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <meta charset="utf-8" />
+  <title>ch02_04</title>
+  <script type="text/javascript" src="../angular-1.5.5/angular.js" ></script>
+</head>
+<body>
+  <!-- 当网络较差时，可能存在问题，angularjs 执行需要在网页渲染完成之后，alert 则会中断js代码执行 -->
+  <div>UserName: <input type="text" ng-model="uname" /></div>
+  <div ng-bind="uname"></div>
+    <script type="text/javascript">
+      alert("pause");
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>ch03_02</title>
+  <script type="text/javascript" src="../angular-1.5.5/angular.js" ></script>
+</head>
+<body>
+  <div ng-controller="UserController" style="#ccc solid 1px;">
+    UserName: <input type="text" ng-model="name" placeholder="UserName" />
+    Passwd: <input type="password" ng-model="passwd" placeholder="Passwd" />
+    <button>SUBMIT</button>
+
+    <p>Your UserName: {{name}}</p>
+    <p>Your Passwd: {{passwd}}</p>
+  </div>
+  <br />
+  <div ng-controller="InfoController" style="#ccc solid 1px;">
+    Your Love: <input type="text" ng-model="love" placeholder="Your love" />
+    <p>Your Love: {{love}}</p>
+  </div>
+
+  <script type="text/javascript">
+    function UserController($scope, $log)
+    {
+      $scope.name = "admin";
+      $scope.passwd = "admin";
+      $log.info("UserController -> name: " +  $scope.name)
+      $log.info("UserController -> passwd: " + $scope.passwd)      
+    }
+
+    function InfoController($scope, $log)
+    {
+      $scope.love = "basketball"
+      $log.info("InfoController -> name: " + $scope.name)
+      $log.info("InfoController -> passwd: " + $scope.passwd)
+      $log.info("InfoController -> love: " + $scope.love)      
+    }
+
+    var app = angular.module("app", []);
+    app.controller("UserController", UserController);
+    app.controller("InfoController", InfoController);
+
+    /*
+     每个控制器实例创建一个作用域对象，但每个作用域对象只能与ng-controller所在的开始标签和结束标签之间的DOM元素进行数据绑定
+     若通过InfoController 获取UserController中的值 则会提示undefined!
+      UserController -> name: admin
+      UserController -> passwd: admin
+      InfoController -> name: undefined
+      InfoController -> passwd: undefined
+      InfoController -> love: basketball
+    */
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+  <meta charset="utf-8" />
+  <title>ch02_06</title>
+  <script type="text/javascript" src="../angular-1.5.5/angular.js" ></script>
+</head>
+<body ng-init="price = 10; num = 1">
+  <div>PRICE: <input type="number" ng-model="price" /></div><br />
+  <div>NUM: <input type="number" ng-model="num" /></div><br />
+  <div>TOTAL: {{ price * num }}</div>
+</body>
+</html>
